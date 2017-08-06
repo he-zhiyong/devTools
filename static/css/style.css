@@ -1,0 +1,177 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/*主题色*/
+
+.container {
+    background: #eef1f6;
+}
+
+.menuTitle {
+    background: #20a0ff;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: absolute
+}
+
+.header {
+    height: 60px;
+    display: flex;
+}
+
+.main {
+    height: calc(100% - 60px);
+    overflow: hidden;
+    display: flex;
+}
+
+.logo,
+.tool {
+    width: 230px;
+    height: 60px;
+    float: left;
+}
+
+.blank {
+    flex: 1;
+    height: 60px;
+    float: left;
+}
+
+.logoImg {
+    width: 200px;
+    height: 40px;
+    margin: 10px 15px;
+}
+
+.logoImg-mini {
+    width: 50px;
+    height: 50px;
+    margin: 5px 5px;
+}
+
+.toolButton {
+    margin: 15px 15px;
+    float: right
+}
+
+.main aside {
+    height: 100%;
+    float: left;
+}
+
+.main .menu-collapsed {
+    width: 60px;
+}
+
+.main .menu-expanded {
+    width: 230px;
+}
+
+.main section {
+    flex: 1;
+    height: 100%;
+    background: #fff;
+    overflow-y: scroll;
+    float: left;
+}
+
+.menuTitle {
+    height: 45px;
+}
+
+.menuTitle label {
+    line-height: 45px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.menuTitle .title {
+    margin: 0 40px 0 20px;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.menuTitle .button {
+    margin: 0 5px;
+}
+
+.structureTree,
+.attrTable {
+    height: calc(100% - 45px);
+    overflow-y: scroll;
+}
+
+.attrTable input {
+    height: 20px;
+    width: 80px;
+    border: none;
+    background: none;
+}
+
+.dirTree {
+    height: calc(100% - 91px);
+    overflow-y: scroll;
+}
+
+
+/*修改dirTree默认图标*/
+
+.dirTree .el-tree-node__expand-icon {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: url("../image/icon/folder-close.png") center no-repeat;
+    background-size: 20px 20px;
+}
+
+.dirTree .el-tree-node__expand-icon.expanded {
+    transform: none;
+    background: url("../image/icon/folder-open.png") center no-repeat;
+    background-size: 20px 20px;
+}
+
+.dirTree .el-tree-node__expand-icon.is-leaf {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: url("../image/icon/file-text.png") center no-repeat;
+    background-size: 20px 20px;
+}
+
+.previewDialog {
+    width: 100%;
+    height: 800px;
+    border: none;
+    background: #f2f2f2;
+}
+
+
+/*滚动条基本样式*/
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(206, 206, 206, 0.4);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-corner {}

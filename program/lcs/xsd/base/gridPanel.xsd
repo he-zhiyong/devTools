@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/gridPanel"
+           xmlns="http://www.flyread.com.cn/gridPanel"
+           xmlns:p="http://www.flyread.com.cn/panel"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/panel"/>
+
+    <xs:element name="args" substitutionGroup="p:args" type="gridPanelArgs" />
+    <xs:complexType name="gridPanelArgs" >
+        <xs:complexContent>
+            <xs:extension base="p:panelArgs">
+                <xs:attribute name="autoExpandColumn" type="xs:string"/>
+                <xs:attribute name="autoExpandMax" type="xs:string"/>
+                <xs:attribute name="autoExpandMin" type="xs:string"/>
+                <xs:attribute name="bubbleEvents" type="xs:string"/>
+                <xs:attribute name="cm" type="xs:string"/>
+                <xs:attribute name="colModel" type="xs:string"/>
+                <xs:attribute name="columnLines" type="xs:string"/>
+                <xs:attribute name="columns" type="xs:string"/>
+                <xs:attribute name="ddGroup" type="xs:string"/>
+                <xs:attribute name="ddText" type="xs:string"/>
+                <xs:attribute name="deferRowRender" type="xs:string"/>
+                <xs:attribute name="disableSelection" type="xs:string"/>
+                <xs:attribute name="enableColumnHide" type="xs:string"/>
+                <xs:attribute name="enableColumnMove" type="xs:string"/>
+                <xs:attribute name="enableColumnResize" type="xs:string"/>
+                <xs:attribute name="enableDragDrop" type="xs:string"/>
+                <xs:attribute name="enableHdMenu" type="xs:string"/>
+                <xs:attribute name="hideHeaders" type="xs:string"/>
+                <xs:attribute name="loadMask" type="xs:string"/>
+                <xs:attribute name="maxHeight" type="xs:string"/>
+                <xs:attribute name="minColumnWidth" type="xs:string"/>
+                <xs:attribute name="selModel" type="xs:string"/>
+                <xs:attribute name="sm" type="xs:string"/>
+                <xs:attribute name="stateEvents" type="xs:string"/>
+                <xs:attribute name="store" type="xs:string"/>
+                <xs:attribute name="stripeRows" type="xs:string"/>
+                <xs:attribute name="trackMouseOver" type="xs:string"/>
+                <xs:attribute name="view" type="xs:string"/>
+                <xs:attribute name="viewConfig" type="xs:string"/>
+                <xs:attribute name="url" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

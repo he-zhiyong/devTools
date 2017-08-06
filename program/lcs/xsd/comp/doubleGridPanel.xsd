@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/doubleGridPanel"
+           xmlns="http://www.flyread.com.cn/doubleGridPanel"
+           xmlns:g="http://www.flyread.com.cn/editorGridPanel"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/editorGridPanel"/>
+
+    <xs:element name="args" substitutionGroup="g:args" type="doubleGridPanelArgs" />
+    <xs:complexType name="doubleGridPanelArgs" >
+        <xs:complexContent>
+            <xs:extension base="g:editorGridPanelArgs">
+                <xs:attribute name="sonStore" type="xs:string"/>
+                <xs:attribute name="sonGrid" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

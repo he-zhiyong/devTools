@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>lcs</title>
+    <link rel="stylesheet" type="text/css" href="./extjs/resources/css/ext-all.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./extjs/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="./extjs/ext-all.js"></script>
+    <script type="text/javascript" src="./js/ux.js"></script>
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <script type="text/javascript" src="./js/jquery.form.js"></script>
+    <script type="text/javascript" src="./js/ux.msgBox.js"></script>
+    <script type="text/javascript" src="./js/qrcode.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        Ext.onReady(function() {
+            var container = new Ext.Viewport({
+                id: "container"
+            })
+            if (window.name) {
+                alert(window.name)
+            } else {
+                getPageWindow();
+            }
+        });
+
+        function getPageWindow() {
+            totalArgs = {};
+            var formWindow = new Ext.Window({
+                id: "formWindow",
+                width: 300,
+                height: 250,
+                minWidth: 300,
+                minHeight: 250,
+                baseCls: "",
+                closable: false,
+                border: false,
+                resizable: false,
+                style: "background:#fff;",
+                layout: {
+                    type: "vbox",
+                    align: "stretch"
+                },
+                items: [{
+                    xtype: "panel",
+                    id: "title",
+                    height: 40,
+                    border: false,
+                    style: "border-bottom:1px solid #f0f0f0",
+                    layout: {
+                        type: "hbox",
+                        align: "stretch"
+                    },
+                    items: [{
+                        xtype: "label",
+                        text: "生成工具",
+                        width: 100,
+                        margins: "0 0 0 10",
+                        style: "line-height:40px;font-size:16px;"
+                    }]
+                }, {
+                    xtype: "form",
+                    id: "form",
+                    name: "compForm",
+                    buttonAlign: "center",
+                    baseCls: "",
+                    width: 250,
+                    margins: "20 20 10 20",
+                    flex: 1,
+                    defaults: {
+                        labelStyle: "width:90px;font-size:14px;padding:0px;line-height:22px;text-align:right;",
+                        validateOnBlur: true,
+                    },
+                    items: [{
+                        xtype: "textfield",
+                        name: "compType",
+                        id: "compType",
+                        fieldLabel: "组件类型",
+                        inputType: "text",
+                    }, {
+                        xtype: "textfield",
+                        name: "compName",
+                        id: "compName",
+                        fieldLabel: "组件名称",
+                        inputType: "text",
+                    }, {
+                        xtype: "textfield",
+                        id: "pageName",
+                        name: "pageName",
+                        fieldLabel: "pageName",
+                        inputType: "text"
+                    }, {
+                        xtype: "textfield",
+                        name: "jsonPath",
+                        id: "jsonPath",
+                        disabled: true,
+                        fieldLabel: "jsonPath",
+                    }, {
+                        xtype: "textfield",
+                        disabled: true,
+                        id: "xmlPath",
+                        name: "xmlPath",
+                        fieldLabel: "xmlPath",
+                    }],
+                    buttons: ['-', {
+                        text: "生成",
+                        handler: function() {
+                            var compData = Ext.getCmp("form").getForm().getValues();
+                            if (compData.compType && compData.compName) {
+                                var params = {
+                                    compType: compData.compType,
+                                    compName: compData.compName
+                                }
+                                createPageData(params, function(result) {
+                                    Ext.getCmp("pageName").setValue(compData.compName);
+                                    Ext.getCmp("jsonPath").setValue(result.jsonPath);
+                                    Ext.getCmp("xmlPath").setValue(result.xmlPath);
+                                })
+                            } else {
+                                alert("请填写必要参数!");
+                            }
+                        }
+                    }, {
+                        text: "预览",
+                        handler: function() {
+                            var pageName = Ext.getCmp("pageName").getValue();
+                            if (pageName) {
+                                getPage(pageName);
+                            } else {
+                                alert("请填写pageName!");
+                            }
+                        }
+                    }, {
+                        text: "重置",
+                        handler: function() {
+                            var targetWindow = Ext.getCmp(Ext.getCmp("compName").getValue());
+                            if (targetWindow) {
+                                targetWindow.destroy();
+                            }
+                            tmpWindow.removeAll();
+                            tmpWindow.hide();
+                            formWindow.center();
+                            Ext.getCmp("compName").setValue("");
+                            Ext.getCmp("compType").setValue("");
+                            Ext.getCmp("pageName").setValue("");
+                            Ext.getCmp("jsonPath").setValue("");
+                            Ext.getCmp("xmlPath").setValue("");
+                            totalArgs = {};
+                        }
+                    }, '-'],
+                }]
+            });
+            formWindow.show(this);
+        };
+
+        function createPageData(params, fn) {
+            $.ajax({
+                type: "post",
+                url: "./php/createXml.php",
+                data: params,
+                success: function(data) {
+                    var result = JSON.parse(data);
+                    if (result.success) {
+                        if (fn) {
+                            fn(result)
+                        }
+                    } else {
+                        alert("生成出错!");
+                        console.log(result);
+                    }
+                }
+            })
+        };
+
+        function getPage(pageName) {
+            var params = {
+                pageName: pageName
+            };
+            var tmpFn = function() {
+                var string = pageName + "(totalArgs[\"" + pageName + "\"],{},'container');";
+                window.eval(string);
+            }
+            Ext.ux.getPageData(params, "", tmpFn);
+        };
+
+        function showPage() {
+
+        };
+    </script>
+</body>
+
+</html>

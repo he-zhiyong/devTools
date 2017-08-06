@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/repeatGridPanel"
+           xmlns="http://www.flyread.com.cn/repeatGridPanel"
+           xmlns:e="http://www.flyread.com.cn/editorGridPanel"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/repeatGridPanel"/>
+
+    <xs:element name="args" substitutionGroup="e:args" type="repeatGridPanelArgs" />
+    <xs:complexType name="repeatGridPanelArgs" >
+        <xs:complexContent>
+            <xs:extension base="e:editorGridPanelArgs">
+                <xs:attribute name="expanderArray" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

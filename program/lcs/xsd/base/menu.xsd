@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/menu"
+           xmlns="http://www.flyread.com.cn/menu"
+           xmlns:con="http://www.flyread.com.cn/container"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/container"/>
+
+    <xs:element name="args" substitutionGroup="con:args" type="menuArgs" />
+    <xs:complexType name="menuArgs" >
+        <xs:complexContent>
+            <xs:extension base="con:containerArgs">
+
+                <xs:attribute name="allowOtherMenus" type="xs:string"/>
+                <xs:attribute name="defaultAlign" type="xs:string"/>
+                <xs:attribute name="defaultOffsets" type="xs:string"/>
+                <xs:attribute name="defaults" type="xs:string"/>
+                <xs:attribute name="enableScrolling" type="xs:string"/>
+                <xs:attribute name="floating" type="xs:string"/>
+                <xs:attribute name="ignoreParentClicks" type="xs:string"/>
+                <xs:attribute name="items" type="xs:string"/>
+                <xs:attribute name="layout" type="xs:string"/>
+                <xs:attribute name="maxheight" type="xs:string"/>
+                <xs:attribute name="minwidth" type="xs:string"/>
+                <xs:attribute name="plain" type="xs:string"/>
+                <xs:attribute name="scrollIncrement" type="xs:string"/>
+                <xs:attribute name="shadow" type="xs:string"/>
+                <xs:attribute name="showSeparator" type="xs:string"/>
+                <xs:attribute name="subMenuAlign" type="xs:string"/>
+                <xs:attribute name="zIndex" type="xs:string"/>
+
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/boxComponent"
+           xmlns="http://www.flyread.com.cn/boxComponent"
+           xmlns:co="http://www.flyread.com.cn/component"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/component"/>
+
+    <xs:element name="args" substitutionGroup="co:args" type="boxComponentArgs" />
+    <xs:complexType name="boxComponentArgs" >
+        <xs:complexContent>
+            <xs:extension base="co:componentArgs">
+                <xs:attribute name="anchor" type="xs:string"/>
+                <xs:attribute name="autoHeight" type="xs:string"/>
+                <xs:attribute name="autoWidth" type="xs:string"/>
+                <xs:attribute name="autoScroll" type="xs:string"/>
+                <xs:attribute name="boxMaxHeight" type="xs:string"/>
+                <xs:attribute name="boxMaxWidth" type="xs:string"/>
+                <xs:attribute name="boxMinHeight" type="xs:string"/>
+                <xs:attribute name="boxMinWidth" type="xs:string"/>
+                <xs:attribute name="columnWidth" type="xs:string"/>
+                <xs:attribute name="flex" type="xs:string"/>
+                <xs:attribute name="height" type="xs:string"/>
+                <xs:attribute name="margins" type="xs:string"/>
+                <xs:attribute name="pageX" type="xs:string"/>
+                <xs:attribute name="pageY" type="xs:string"/>
+                <xs:attribute name="region" type="xs:string"/>
+                <xs:attribute name="tabTip" type="xs:string"/>
+                <xs:attribute name="width" type="xs:string"/>
+                <xs:attribute name="x" type="xs:string"/>
+                <xs:attribute name="y" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

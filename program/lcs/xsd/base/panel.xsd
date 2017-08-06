@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/panel"
+           xmlns="http://www.flyread.com.cn/panel"
+           xmlns:con="http://www.flyread.com.cn/container"
+           elementFormDefault="qualified" >
+
+    <xs:import namespace="http://www.flyread.com.cn/container" />
+
+    <xs:element name="args" substitutionGroup="con:args" type="panelArgs" />
+    <xs:complexType name="panelArgs"  >
+        <xs:complexContent >
+            <xs:extension base="con:containerArgs" >
+                <xs:attribute name="animCollapse" type="xs:string"/>
+                <xs:attribute name="applyTo" type="xs:string"/>
+                <xs:attribute name="autoHeight" type="xs:string"/>
+                <xs:attribute name="autoLoad" type="xs:string"/>
+                <xs:attribute name="baseCls" type="xs:string"/>
+                <xs:attribute name="bbar" type="xs:string"/>
+                <xs:attribute name="bbarCfg" type="xs:string"/>
+                <xs:attribute name="bodyBorder" type="xs:string"/>
+                <xs:attribute name="bodyCfg" type="xs:string"/>
+                <xs:attribute name="bodyCssClass" type="xs:string"/>
+                <xs:attribute name="bodyStyle" type="xs:string"/>
+                <xs:attribute name="border" type="xs:string"/>
+                <xs:attribute name="buttonAlign" type="xs:string"/>
+                <xs:attribute name="buttons" type="xs:string"/>
+                <xs:attribute name="bwrapCfg" type="xs:string"/>
+                <xs:attribute name="closable" type="xs:string"/>
+                <xs:attribute name="collapseFirst" type="xs:string"/>
+                <xs:attribute name="collapsed" type="xs:string"/>
+                <xs:attribute name="collapsedCls" type="xs:string"/>
+                <xs:attribute name="collapsible" type="xs:string"/>
+                <xs:attribute name="disabled" type="xs:string"/>
+                <xs:attribute name="draggable" type="xs:string"/>
+                <xs:attribute name="elements" type="xs:string"/>
+                <xs:attribute name="fbar" type="xs:string"/>
+                <xs:attribute name="floating" type="xs:string"/>
+                <xs:attribute name="footer" type="xs:string"/>
+                <xs:attribute name="footerCfg" type="xs:string"/>
+                <xs:attribute name="frame" type="xs:string"/>
+                <xs:attribute name="header" type="xs:string"/>
+                <xs:attribute name="headerAsText" type="xs:string"/>
+                <xs:attribute name="headerCfg" type="xs:string"/>
+                <xs:attribute name="hideCollapseTool" type="xs:string"/>
+                <xs:attribute name="iconCls" type="xs:string"/>
+                <xs:attribute name="keys" type="xs:string"/>
+                <xs:attribute name="maskDisabled" type="xs:string"/>
+                <xs:attribute name="minButtonWidth" type="xs:string"/>
+                <xs:attribute name="padding" type="xs:string"/>
+                <xs:attribute name="preventBodyReset" type="xs:string"/>
+                <xs:attribute name="resizeEvent" type="xs:string"/>
+                <xs:attribute name="shadow" type="xs:string"/>
+                <xs:attribute name="shadowOffset" type="xs:string"/>
+                <xs:attribute name="shim" type="xs:string"/>
+                <xs:attribute name="tbar" type="xs:string"/>
+                <xs:attribute name="tbarCfg" type="xs:string"/>
+                <xs:attribute name="title" type="xs:string"/>
+                <xs:attribute name="titleCollapse" type="xs:string"/>
+                <xs:attribute name="toolTemplate" type="xs:string"/>
+                <xs:attribute name="tools" type="xs:string"/>
+                <xs:attribute name="unstyled" type="xs:string"/>
+                <xs:attribute name="clickFn" type="xs:string"/>
+                <xs:attribute name="tabCls" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

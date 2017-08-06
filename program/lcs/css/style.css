@@ -1,0 +1,134 @@
+html,
+body {
+    font: normal 12px verdana;
+    margin: 0;
+    padding: 0;
+    background-color: #E7E7E7;
+}
+
+.mainWindow {
+    background-color: #F9F9F9;
+}
+
+.north {
+    font-size: 18px;
+    text-indent: 20px;
+    line-height: 40px;
+    border-bottom: 1px solid #F0F0F0;
+    background-color: #FFFFFF;
+}
+
+.topbtn {
+    margin-left: 800px;
+}
+
+.topbtn button {
+    width: 30px;
+    height: 40px;
+    float: left;
+    border: none;
+    margin-top: 5px;
+}
+
+.minWindow button {
+    background: url(../images/min.png) no-repeat;
+}
+
+.maxWindow button {
+    background: url(../images/max.png) no-repeat;
+}
+
+.exitWindow button {
+    background: url(../images/exit.png) no-repeat;
+}
+
+.west {
+    border-right: 1px solid #F0F0F0;
+    background-color: #FFFFFF;
+}
+
+.centerNorth {
+    border-bottom: 1px solid #F0F0F0;
+    font-size: 20px;
+    background-color: #FFFFFF;
+}
+
+.content {
+    width: 770px;
+    height: 690px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+.menu1,
+.menu2,
+.menu3,
+.menu4,
+.menu5,
+.menu6,
+.menu7 {
+    width: 200px;
+    height: 40px;
+    border-bottom: 1px solid #F0F0F0;
+    font-size: 14px;
+    text-indent: 45px;
+    line-height: 40px;
+}
+
+.menu1 {
+    background: url(../images/01.png) no-repeat 15px;
+}
+
+.menu2 {
+    background: url(../images/02.png) no-repeat 15px;
+}
+
+.menu3 {
+    background: url(../images/03.png) no-repeat 15px;
+}
+
+.menu4 {
+    background: url(../images/04.png) no-repeat 15px;
+}
+
+.menu5 {
+    background: url(../images/05.png) no-repeat 15px;
+}
+
+.menu6 {
+    background: url(../images/06.png) no-repeat 15px;
+}
+
+.menu7 {
+    background: url(../images/07.png) no-repeat 15px;
+}
+
+.open {
+    width: 30px;
+    height: 40px;
+    border: none;
+    margin-left: 25px;
+    background: url(../images/arrow.png) no-repeat;
+}
+
+.showTitile {
+    width: 40px;
+    height: 38px;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    margin-left: 15px;
+    border-bottom: 2px solid #17C183;
+}
+
+.menu01 {
+    font-size: 14px;
+    line-height: 40px;
+    text-indent: 35px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.menu01 label:hover {
+    background: #17C183;
+    color: white;
+}

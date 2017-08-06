@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/radio"
+           xmlns="http://www.flyread.com.cn/radio"
+           xmlns:check="http://www.flyread.com.cn/checkbox"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/checkbox"/>
+
+    <xs:element name="args" substitutionGroup="check:args" type="radioArgs" />
+    <xs:complexType name="radioArgs" >
+        <xs:complexContent>
+            <xs:extension base="check:checkboxArgs">
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

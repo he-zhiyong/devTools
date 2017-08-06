@@ -1,0 +1,1 @@
+{"day":{"code":"day","name":"日","desc":"最小订阅单位为日"},"week":{"code":"week","name":"周","desc":"最小订阅单位为周"},"month":{"code":"month","name":"月","desc":"最小订阅单位为月"},"season":{"code":"season","name":"季","desc":"最小订阅单位为季"},"year":{"code":"year","name":"年","desc":"最小订阅单位为年"},"issue":{"code":"issue","name":"期","desc":"表示该刊物不定期发刊"}}

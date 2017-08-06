@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/columnLabel"
+           xmlns="http://www.flyread.com.cn/columnLabel"
+           xmlns:l="http://www.flyread.com.cn/label"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/label"/>
+
+    <xs:element name="args" substitutionGroup="l:args" type="columnLabelArgs" />
+    <xs:complexType name="columnLabelArgs" >
+        <xs:complexContent>
+            <xs:extension base="l:labelArgs">
+                <xs:attribute name="tableField" type="xs:string"  />
+                <xs:attribute name="columnNum" type="xs:string" />
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
+
+

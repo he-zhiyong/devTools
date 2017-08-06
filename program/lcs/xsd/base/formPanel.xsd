@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/formPanel"
+           xmlns="http://www.flyread.com.cn/formPanel"
+           xmlns:p="http://www.flyread.com.cn/panel"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/panel"/>
+
+    <xs:element name="args" substitutionGroup="p:args" type="formPanelArgs" />
+    <xs:complexType name="formPanelArgs" >
+        <xs:complexContent>
+            <xs:extension base="p:panelArgs">
+                <xs:attribute name="fileUpload" type="xs:string"/>
+                <xs:attribute name="buttons" type="xs:string"/>
+                <xs:attribute name="formId" type="xs:string"/>
+                <xs:attribute name="hideLabels" type="xs:string"/>
+                <xs:attribute name="itemCls" type="xs:string"/>
+                <xs:attribute name="labelAlign" type="xs:string"/>
+                <xs:attribute name="labelPad" type="xs:string"/>
+                <xs:attribute name="labelSeparator" type="xs:string"/>
+                <xs:attribute name="labelWidth" type="xs:string"/>
+                <xs:attribute name="layout" type="xs:string"/>
+                <xs:attribute name="minButtonWidth" type="xs:string"/>
+                <xs:attribute name="monitorPoll" type="xs:string"/>
+                <xs:attribute name="monitorResize" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

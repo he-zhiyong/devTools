@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/tableRow"
+           xmlns="http://www.flyread.com.cn/tableRow"
+           xmlns:p="http://www.flyread.com.cn/panel"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/panel"/>
+
+    <xs:element name="args" substitutionGroup="p:args" type="tableRowArgs" />
+    <xs:complexType name="tableRowArgs" >
+        <xs:complexContent>
+            <xs:extension base="p:panelArgs">
+                <xs:attribute name="rowLength" type="xs:string" />
+                <xs:attribute name="rowTitle" type="xs:string"/>
+                <xs:attribute name="rowWidth" type="xs:string"/>
+                <xs:attribute name="rowHeight" type="xs:string"/>
+                <xs:attribute name="rowExample" type="xs:string"/>
+                <xs:attribute name="rowNum" type="xs:string" use="required"/>
+                <xs:attribute name="tableId" type="xs:string" use="required"/>
+                <xs:attribute name="rowField" type="xs:string" />
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

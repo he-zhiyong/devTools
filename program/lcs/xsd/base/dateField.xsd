@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/dateField"
+           xmlns="http://www.flyread.com.cn/dateField"
+           xmlns:triggerF="http://www.flyread.com.cn/triggerField"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/triggerField"/>
+
+    <xs:element name="args" substitutionGroup="triggerF:args" type="dateFieldArgs"/>
+    <xs:complexType name="dateFieldArgs">
+        <xs:complexContent>
+            <xs:extension base="triggerF:triggerFieldArgs">
+
+                <xs:attribute name="altFormats" type="xs:string"/>
+                <xs:attribute name="autoCreate" type="xs:string"/>
+                <xs:attribute name="disabledDates" type="xs:string"/>
+                <xs:attribute name="disabledDatesText" type="xs:string"/>
+                <xs:attribute name="disabledDays" type="xs:string"/>
+                <xs:attribute name="disabledDaysText" type="xs:string"/>
+                <xs:attribute name="format" type="xs:string"/>
+                <xs:attribute name="invalidText" type="xs:string"/>
+                <xs:attribute name="maxText" type="xs:string"/>
+                <xs:attribute name="maxValue" type="xs:string"/>
+                <xs:attribute name="minText" type="xs:string"/>
+                <xs:attribute name="minValue" type="xs:string"/>
+                <xs:attribute name="showToday" type="xs:string"/>
+                <xs:attribute name="triggerClass" type="xs:string"/>
+
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

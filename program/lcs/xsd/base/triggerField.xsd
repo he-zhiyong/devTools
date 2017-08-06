@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/triggerField"
+           xmlns="http://www.flyread.com.cn/triggerField"
+           xmlns:textF="http://www.flyread.com.cn/textField"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/textField"/>
+
+    <xs:element name="args" substitutionGroup="textF:args" type="triggerFieldArgs" />
+    <xs:complexType name="triggerFieldArgs" >
+        <xs:complexContent>
+            <xs:extension base="textF:textFieldArgs">
+                <xs:attribute name="autoCreate" type="xs:string"/>
+                <xs:attribute name="editable" type="xs:string"/>
+                <xs:attribute name="hideTrigger" type="xs:string"/>
+                <xs:attribute name="readOnly" type="xs:string"/>
+                <xs:attribute name="triggerClass" type="xs:string"/>
+                <xs:attribute name="triggerConfig" type="xs:string"/>
+                <xs:attribute name="wrapFocusClass" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

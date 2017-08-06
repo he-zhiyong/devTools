@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/tabPanel"
+           xmlns="http://www.flyread.com.cn/tabPanel"
+           xmlns:pan="http://www.flyread.com.cn/panel"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/panel"/>
+
+    <xs:element name="args" substitutionGroup="pan:args" type="tabPanelArgs" />
+    <xs:complexType name="tabPanelArgs" >
+        <xs:complexContent>
+            <xs:extension base="pan:panelArgs">
+                <xs:attribute name="activeTab" type="xs:string"/>
+                <xs:attribute name="animScroll" type="xs:string"/>
+                <xs:attribute name="autoTabSelector" type="xs:string"/>
+                <xs:attribute name="autoTabs" type="xs:string"/>
+                <xs:attribute name="baseCls" type="xs:string"/>
+                <xs:attribute name="deferredRender" type="xs:string"/>
+                <xs:attribute name="enableTabScroll" type="xs:string"/>
+                <xs:attribute name="itemTpl" type="xs:string"/>
+                <xs:attribute name="layoutConfig" type="xs:string"/>
+                <xs:attribute name="layoutOnTabChange" type="xs:string"/>
+                <xs:attribute name="minTabWidth" type="xs:string"/>
+                <xs:attribute name="plain" type="xs:string"/>
+                <xs:attribute name="resizeTabs" type="xs:string"/>
+                <xs:attribute name="scrollDuration" type="xs:string"/>
+                <xs:attribute name="scrollIncrement" type="xs:string"/>
+                <xs:attribute name="scrollRepeatInterval" type="xs:string"/>
+                <xs:attribute name="tabCls" type="xs:string"/>
+                <xs:attribute name="tabMargin" type="xs:string"/>
+                <xs:attribute name="tabPosition" type="xs:string"/>
+                <xs:attribute name="wheelIncrement" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

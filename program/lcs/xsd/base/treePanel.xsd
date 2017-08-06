@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/treePanel"
+           xmlns="http://www.flyread.com.cn/treePanel"
+           xmlns:p="http://www.flyread.com.cn/panel"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/panel"/>
+
+    <xs:element name="args" substitutionGroup="p:args" type="treePanelArgs" />
+    <xs:complexType name="treePanelArgs" >
+        <xs:complexContent>
+            <xs:extension base="p:panelArgs">
+                <xs:attribute name="animate" type="xs:string"/>
+                <xs:attribute name="bubbleEvents" type="xs:string"/>
+                <xs:attribute name="containerScroll" type="xs:string"/>
+                <xs:attribute name="ddAppendOnly" type="xs:string"/>
+                <xs:attribute name="ddGroup" type="xs:string"/>
+                <xs:attribute name="dataUrl" type="xs:string"/>
+                <xs:attribute name="ddScroll" type="xs:string"/>
+                <xs:attribute name="dragConfig" type="xs:string"/>
+                <xs:attribute name="dropConfig" type="xs:string"/>
+                <xs:attribute name="enableDD" type="xs:string"/>
+                <xs:attribute name="enableDrag" type="xs:string"/>
+                <xs:attribute name="enableDrop" type="xs:string"/>
+                <xs:attribute name="hlColor" type="xs:string"/>
+                <xs:attribute name="hlDrop" type="xs:string"/>
+                <xs:attribute name="lines" type="xs:string"/>
+                <xs:attribute name="loader" type="xs:string"/>
+                <xs:attribute name="pathSeparator" type="xs:string"/>
+                <xs:attribute name="requestMethod" type="xs:string"/>
+                <xs:attribute name="root" type="xs:string"/>
+                <xs:attribute name="rootVisible" type="xs:string"/>
+                <xs:attribute name="selModel" type="xs:string"/>
+                <xs:attribute name="singleExpand" type="xs:string"/>
+                <xs:attribute name="trackMouseOver" type="xs:string"/>
+                <xs:attribute name="useArrows" type="xs:string"/>
+                <xs:attribute name="args" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

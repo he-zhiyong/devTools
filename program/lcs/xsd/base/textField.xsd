@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/textField"
+           xmlns="http://www.flyread.com.cn/textField"
+           xmlns:field="http://www.flyread.com.cn/field"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/field"/>
+
+    <xs:element name="args" substitutionGroup="field:args" type="textFieldArgs" />
+    <xs:complexType name="textFieldArgs" >
+        <xs:complexContent>
+            <xs:extension base="field:fieldArgs">
+                <xs:attribute name="allowBlank" type="xs:string"/>
+                <xs:attribute name="blankText" type="xs:string"/>
+                <xs:attribute name="disableKeyFilter" type="xs:string"/>
+                <xs:attribute name="emptyClass" type="xs:string"/>
+                <xs:attribute name="emptyText" type="xs:string"/>
+                <xs:attribute name="enableKeyEvents" type="xs:string"/>
+                <xs:attribute name="grow" type="xs:string"/>
+                <xs:attribute name="growMax" type="xs:string"/>
+                <xs:attribute name="growMin" type="xs:string"/>
+                <xs:attribute name="maskRe " type="xs:string"/>
+                <xs:attribute name="maxLength" type="xs:string"/>
+                <xs:attribute name="maxLengthText" type="xs:string"/>
+                <xs:attribute name="minLength" type="xs:string"/>
+                <xs:attribute name="minLengthText" type="xs:string"/>
+                <xs:attribute name="regex" type="xs:string"/>
+                <xs:attribute name="regexText" type="xs:string"/>
+                <xs:attribute name="selectOnFocus" type="xs:string"/>
+                <xs:attribute name="stripCharsRe" type="xs:string"/>
+                <xs:attribute name="validator" type="xs:string"/>
+                <xs:attribute name="vtype" type="xs:string"/>
+                <xs:attribute name="vtypeText" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

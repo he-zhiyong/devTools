@@ -1,0 +1,1 @@
+{"startOrder":{"code":"startOrder","name":"选定","desc":"开始订购","sort":10210},"submitOrder":{"code":"submitOrder","name":"提交定单","desc":"提交订单到书商","sort":10230},"checkAndAccept":{"code":"checkAndAccept","name":"已验收","desc":"已验收","sort":10330},"sendCatalog":{"code":"sendCatalog","name":"送编","desc":"送编","sort":10360}}

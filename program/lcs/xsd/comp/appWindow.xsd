@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/appWindow"
+           xmlns="http://www.flyread.com.cn/appWindow"
+           xmlns:w="http://www.flyread.com.cn/window"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/window"/>
+
+    <xs:element name="args" substitutionGroup="w:args" type="appWindowArgs" />
+    <xs:complexType name="appWindowArgs" >
+        <xs:complexContent>
+            <xs:extension base="w:windowArgs">
+                <xs:attribute name="taskPanelId" type="xs:string"/>
+                <xs:attribute name="iconClass" type="xs:string"/>
+                <xs:attribute name="autoSize" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

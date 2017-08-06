@@ -1,0 +1,1 @@
+{"importing":{"code":"importing","name":"导入中","desc":"导入中"},"all_success":{"code":"all_success","name":"全部成功","desc":"全部导入成功"},"same_check_err":{"code":"same_check_err","name":"重复验证错误","desc":"重复验证错误(存在重复的数据)"},"analysis_err":{"code":"analysis_err","name":"解析错误","desc":"解析错误(格式不匹配)"},"insert_err":{"code":"insert_err","name":"插入错误","desc":"插入错误(数据不匹配)"}}

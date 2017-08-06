@@ -1,0 +1,1 @@
+{"analysisErr":{"code":"analysisErr","name":"解析错误","desc":"解析错误,可能是某些字段存在异常"},"duplicateErr":{"code":"duplicateErr","name":"查重错误","desc":"数据存在重复的数据(需在导入配置中设置)"},"normal":{"code":"normal","name":"正常","desc":"正常内容"},"scattered_order_already":{"code":"scattered_order_already","name":"零订已定","desc":"零订已定"},"unOrder":{"code":"unOrder","name":"不可下单","desc":"不可下单"}}

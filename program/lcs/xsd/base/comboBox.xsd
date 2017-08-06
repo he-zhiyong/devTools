@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/comboBox"
+           xmlns="http://www.flyread.com.cn/comboBox"
+           xmlns:triF="http://www.flyread.com.cn/triggerField"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/triggerField"/>
+
+    <xs:element name="args" substitutionGroup="triF:args" type="comboBoxArgs" />
+    <xs:complexType name="comboBoxArgs" >
+        <xs:complexContent>
+            <xs:extension base="triF:triggerFieldArgs">
+                <xs:attribute name="allQuery" type="xs:string"/>
+                <xs:attribute name="autoCreate" type="xs:string"/>
+                <xs:attribute name="autoSelect" type="xs:string"/>
+                <xs:attribute name="clearFilterOnReset" type="xs:string"/>
+                <xs:attribute name="displayField" type="xs:string"/>
+                <xs:attribute name="forceSelection" type="xs:string"/>
+                <xs:attribute name="handleHeight" type="xs:string"/>
+                <xs:attribute name="hiddenId" type="xs:string"/>
+                <xs:attribute name="hiddenName" type="xs:string"/>
+                <xs:attribute name="hiddenValue" type="xs:string"/>
+                <xs:attribute name="itemSelector" type="xs:string"/>
+                <xs:attribute name="lazyInit" type="xs:string"/>
+                <xs:attribute name="lazyRender" type="xs:string"/>
+                <xs:attribute name="listAlign" type="xs:string"/>
+                <xs:attribute name="listClass" type="xs:string"/>
+                <xs:attribute name="listEmptyText" type="xs:string"/>
+                <xs:attribute name="listWidth" type="xs:string"/>
+                <xs:attribute name="loadingText" type="xs:string"/>
+                <xs:attribute name="maxHeight" type="xs:string"/>
+                <xs:attribute name="minChars" type="xs:string"/>
+                <xs:attribute name="minHeight" type="xs:string"/>
+                <xs:attribute name="minListWidth" type="xs:string"/>
+                <xs:attribute name="mode" type="xs:string"/>
+                <xs:attribute name="pageSize" type="xs:string"/>
+                <xs:attribute name="queryDelay" type="xs:string"/>
+                <xs:attribute name="queryParam" type="xs:string"/>
+                <xs:attribute name="resizable" type="xs:string"/>
+                <xs:attribute name="selectOnFocus" type="xs:string"/>
+                <xs:attribute name="selectedClass" type="xs:string"/>
+                <xs:attribute name="shadow" type="xs:string"/>
+                <xs:attribute name="store" type="xs:string"/>
+                <xs:attribute name="submitValue" type="xs:string"/>
+                <xs:attribute name="title" type="xs:string"/>
+                <xs:attribute name="tpl" type="xs:string"/>
+                <xs:attribute name="transform" type="xs:string"/>
+                <xs:attribute name="triggerAction" type="xs:string"/>
+                <xs:attribute name="triggerClass" type="xs:string"/>
+                <xs:attribute name="typeAhead" type="xs:string"/>
+                <xs:attribute name="typeAheadDelay" type="xs:string"/>
+                <xs:attribute name="valueField" type="xs:string"/>
+                <xs:attribute name="valueNotFoundText" type="xs:string"/>
+
+
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

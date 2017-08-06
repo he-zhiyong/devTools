@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/window"
+           xmlns="http://www.flyread.com.cn/window"
+           xmlns:pan="http://www.flyread.com.cn/panel"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/panel"/>
+
+    <xs:element name="args" substitutionGroup="pan:args" type="windowArgs" />
+    <xs:complexType name="windowArgs" >
+        <xs:complexContent>
+            <xs:extension base="pan:panelArgs">
+                <xs:attribute name="animateTarget" type="xs:string"/>
+                <xs:attribute name="baseCls" type="xs:string"/>
+                <xs:attribute name="closeable" type="xs:string"/>
+                <xs:attribute name="closeAction" type="xs:string"/>
+                <xs:attribute name="collapsed" type="xs:string"/>
+                <xs:attribute name="constrain" type="xs:string"/>
+                <xs:attribute name="constrainHeader" type="xs:string"/>
+                <xs:attribute name="defaultButton" type="xs:string"/>
+                <xs:attribute name="draggable" type="xs:string"/>
+                <xs:attribute name="expandOnShow" type="xs:string"/>
+                <xs:attribute name="hidden" type="xs:string"/>
+                <xs:attribute name="initHidden" type="xs:string"/>
+                <xs:attribute name="manager" type="xs:string"/>
+                <xs:attribute name="maximizable" type="xs:string"/>
+                <xs:attribute name="maximized" type="xs:string"/>
+                <xs:attribute name="minHeight" type="xs:string"/>
+                <xs:attribute name="minWidth" type="xs:string"/>
+                <xs:attribute name="minimizable" type="xs:string"/>
+                <xs:attribute name="modal" type="xs:string"/>
+                <xs:attribute name="onEsc" type="xs:string"/>
+                <xs:attribute name="plain" type="xs:string"/>
+                <xs:attribute name="resizable" type="xs:string"/>
+                <xs:attribute name="resizeHandles" type="xs:string"/>
+                <xs:attribute name="x" type="xs:string"/>
+                <xs:attribute name="y" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

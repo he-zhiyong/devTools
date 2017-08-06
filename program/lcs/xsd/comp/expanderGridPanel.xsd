@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/expanderGridPanel"
+           xmlns="http://www.flyread.com.cn/expanderGridPanel"
+           xmlns:g="http://www.flyread.com.cn/editorGridPanel"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/editorGridPanel"/>
+
+    <xs:element name="args" substitutionGroup="g:args" type="expanderGridPanelArgs" />
+    <xs:complexType name="expanderGridPanelArgs" >
+        <xs:complexContent>
+            <xs:extension base="g:editorGridPanelArgs">
+                <xs:attribute name="rowExpander" type="xs:string"/>
+                <xs:attribute name="expanderAutoFlag" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

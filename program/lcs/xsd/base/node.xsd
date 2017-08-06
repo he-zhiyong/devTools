@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/node"
+           xmlns:n="http://www.flyread.com.cn/node"
+           elementFormDefault="qualified">
+    <xs:simpleType name="javaName">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z$_][a-zA-Z$_0-9]*"/>
+        </xs:restriction>
+
+    </xs:simpleType>
+
+
+    <xs:simpleType name="script">
+        <xs:restriction base="xs:string">
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="component" block="#all">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="define" type="n:defineType" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="import" type="n:importType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:choice minOccurs="0" maxOccurs="1">
+                    <xs:element name="script" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:choice>
+                <xs:element ref="n:node" minOccurs="0" maxOccurs="1"/>
+                <xs:choice minOccurs="0" maxOccurs="1">
+                    <xs:element name="script" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:choice>
+            </xs:sequence>
+
+        </xs:complexType>
+
+        <xs:unique name="refIdUnique">
+            <xs:selector xpath="n:import"/>
+            <xs:field xpath="@refId"/>
+        </xs:unique>
+        <xs:unique name="varNameUnique">
+            <xs:selector xpath=".//n:node"/>
+            <xs:field xpath="@varName"/>
+        </xs:unique>
+        <xs:key name="funcKey">
+            <xs:selector xpath="n:import"/>
+            <xs:field xpath="@funcName"/>
+        </xs:key>
+        <xs:keyref name="funcRef" refer="n:funcKey">
+            <xs:selector xpath=".//n:node"/>
+            <xs:field xpath="@funcRef"/>
+        </xs:keyref>
+    </xs:element>
+
+    <xs:complexType name="defineType" block="#all">
+        <xs:attribute name="name" type="n:javaName" use="required"/>
+        <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
+        <xs:attribute name="container" type="xs:boolean" use="optional" default="false"/>
+        <xs:attribute name="namespace" type="xs:anyURI" use="required"/>
+        <xs:attribute name="addFuncName" type="n:javaName" use="optional" default="addBean"/>
+        <xs:attribute name="argsName" type="n:javaName" use="optional" default="args"/>
+        <xs:attribute name="selfName" type="n:javaName" use="optional" default="self"/>
+    </xs:complexType>
+    <xs:complexType name="importType" block="#all">
+        <xs:attribute name="funcName" type="n:javaName" use="required"/>
+        <xs:attribute name="refId" type="xs:NMTOKEN" use="required"/>
+    </xs:complexType>
+
+    <xs:element name="node" block="#all">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="n:args" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="n:addArgs" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="subs" type="n:subsType" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="funcRef" type="n:javaName" use="required"/>
+            <xs:attribute name="varName" type="n:javaName"/>
+        </xs:complexType>
+
+    </xs:element>
+
+
+    <xs:complexType name="subsType" block="#all">
+        <xs:sequence>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:element ref="n:node" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="script" type="n:script" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="args" abstract="true" type="n:argsType"/>
+    <xs:element name="addArgs" abstract="false" type="n:argsType"/>
+    <xs:complexType name="argsType" abstract="true"/>
+
+</xs:schema>

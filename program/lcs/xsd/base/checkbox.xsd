@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/checkbox"
+           xmlns="http://www.flyread.com.cn/checkbox"
+           xmlns:field="http://www.flyread.com.cn/field"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/field"/>
+
+    <xs:element name="args" substitutionGroup="field:args" type="checkboxArgs" />
+    <xs:complexType name="checkboxArgs" >
+        <xs:complexContent>
+            <xs:extension base="field:fieldArgs">
+                <xs:attribute name="autoCreate" type="xs:string"/>
+                <xs:attribute name="boxLabel" type="xs:string"/>
+                <xs:attribute name="checked" type="xs:string"/>
+                <xs:attribute name="fieldClass" type="xs:string"/>
+                <xs:attribute name="focusClass" type="xs:string"/>
+                <xs:attribute name="handler" type="xs:string"/>
+                <xs:attribute name="inputValue" type="xs:string"/>
+                <xs:attribute name="scope" type="xs:string"/>
+                <xs:attribute name="clickFn" type="xs:string"/>
+                <xs:attribute name="formName" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

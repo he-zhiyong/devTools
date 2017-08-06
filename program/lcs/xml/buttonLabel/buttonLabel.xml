@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component><define name="buttonLabel" id="buttonLabel"/><import refId="buttonLabel" funcName="ButtonLabel"/><node funcRef="ButtonLabel" varName="buttonLabel"><args text="$buttonLabel.text" style="$buttonLabel.style"/></node></component>

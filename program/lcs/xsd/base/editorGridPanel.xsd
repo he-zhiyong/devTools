@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/editorGridPanel"
+           xmlns="http://www.flyread.com.cn/editorGridPanel"
+           xmlns:g="http://www.flyread.com.cn/gridPanel"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/gridPanel"/>
+
+    <xs:element name="args" substitutionGroup="g:args" type="editorGridPanelArgs" />
+    <xs:complexType name="editorGridPanelArgs" >
+        <xs:complexContent>
+            <xs:extension base="g:gridPanelArgs">
+                <xs:attribute name="autoEncode" type="xs:string"/>
+                <xs:attribute name="clicksToEdit" type="xs:string"/>
+                <xs:attribute name="forceValidation" type="xs:string"/>
+                <xs:attribute name="selModel" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

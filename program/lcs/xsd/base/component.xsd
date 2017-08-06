@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		targetNamespace="http://www.flyread.com.cn/component"
+		xmlns="http://www.flyread.com.cn/component"
+		xmlns:n="http://www.flyread.com.cn/node"
+		elementFormDefault="qualified">
+
+	<xs:import namespace="http://www.flyread.com.cn/node"/>
+	
+	<xs:element name="args" substitutionGroup="n:args" type="componentArgs" />
+	<xs:complexType name="componentArgs" >
+		<xs:complexContent>
+			<xs:extension base="n:argsType">
+				<xs:attribute name="argsFlag" type="xs:string"/>
+				<xs:attribute name="allowDomMove" type="xs:string"/>
+				<xs:attribute name="applyTo" type="xs:string"/>
+				<xs:attribute name="autoEl" type="xs:string"/>
+				<xs:attribute name="autoShow" type="xs:string"/>
+				<xs:attribute name="bubbleEvents" type="xs:string"/>
+				<xs:attribute name="clearCls" type="xs:string"/>
+				<xs:attribute name="cls" type="xs:string"/>
+				<xs:attribute name="contentEl" type="xs:string"/>
+				<xs:attribute name="ctCls" type="xs:string"/>
+				<xs:attribute name="data" type="xs:string"/>
+				<xs:attribute name="disabled" type="xs:string"/>
+				<xs:attribute name="disabledClass" type="xs:string"/>
+				<xs:attribute name="fieldLabel" type="xs:string"/>
+				<xs:attribute name="hidden" type="xs:string"/>
+				<xs:attribute name="hideLabel" type="xs:string"/>
+				<xs:attribute name="hideMode" type="xs:string"/>
+				<xs:attribute name="hideParent" type="xs:string"/>
+				<xs:attribute name="html" type="xs:string"/>
+				<xs:attribute name="id" type="xs:string"/>
+				<xs:attribute name="itemCls" type="xs:string"/>
+				<xs:attribute name="itemId" type="xs:string"/>
+				<xs:attribute name="labelSeparator" type="xs:string"/>
+				<xs:attribute name="labelStyle" type="xs:string"/>
+				<xs:attribute name="listeners" type="xs:string"/>
+				<xs:attribute name="overCls" type="xs:string"/>
+				<xs:attribute name="plugins" type="xs:string"/>
+				<xs:attribute name="ptype" type="xs:string"/>
+				<xs:attribute name="ref" type="xs:string"/>
+				<xs:attribute name="renderTo" type="xs:string"/>
+				<xs:attribute name="stateEvents" type="xs:string"/>
+				<xs:attribute name="stateId" type="xs:string"/>
+				<xs:attribute name="stateful" type="xs:string"/>
+				<xs:attribute name="style" type="xs:string"/>
+				<xs:attribute name="tpl" type="xs:string"/>
+				<xs:attribute name="tplWriteMode" type="xs:string"/>
+				<xs:attribute name="xtype" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

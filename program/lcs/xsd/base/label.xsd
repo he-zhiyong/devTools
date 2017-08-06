@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/label"
+           xmlns="http://www.flyread.com.cn/label"
+           xmlns:boxco="http://www.flyread.com.cn/boxComponent"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/boxComponent"/>
+
+    <xs:element name="args" substitutionGroup="boxco:args" type="labelArgs" />
+    <xs:complexType name="labelArgs" >
+        <xs:complexContent>
+            <xs:extension base="boxco:boxComponentArgs">
+                <xs:attribute name="forId" type="xs:string"/>
+                <xs:attribute name="html" type="xs:string"/>
+                <xs:attribute name="text" type="xs:string"/>
+                <xs:attribute name="clickFn" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

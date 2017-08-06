@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./lib/element-ui/lib/theme-default/index.css">
+    <link rel="stylesheet" href="./lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./static/css/style.css">
+    <title>devTools</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+    <template id="myComponent">
+         <el-row class="container">
+			<el-col :span="24" class="header">
+				<div class="logo">
+					<img class="logoImg" v-show="!leftMenuCollapsed" :src="logo.logoImgSrc">
+					<img class="logoImg-mini" v-show="leftMenuCollapsed" :src="logo.logoMiniImgSrc">
+				</div>
+				<div class="blank"></div>
+				<div class="tool">
+					<el-button class="toolButton" type="primary" size="small" @click="settingOptions">设置
+						<i class="el-icon-setting el-icon--right"></i>
+					</el-button>
+					<el-button class="toolButton" type="primary" size="small" @click="uploadDialogVisible = true">上传
+						<i class="el-icon-upload el-icon--right"></i>
+					</el-button>
+				
+				</div>
+			</el-col>
+			<el-col :span="24" class="main">
+				<aside :class="leftMenuCollapsed?'menu-collapsed':'menu-expanded'">
+					<el-col v-show="!leftMenuCollapsed" style="height:100%;">
+						<el-col class="menuTitle" :span="24">
+							<label class="title">Project Dir</label>
+							<label class="fa fa-refresh button" title="refresh" @click.prevent="initApp"></label>
+							<label class="fa fa-list-alt button" title="expand/collapse" @click.prevent="" ></label>
+							<label class="fa fa-angle-double-left button" title="Menu Collapse" @click.prevent="leftMenuCollapse"></label>
+						</el-col>
+						<el-col :span="24" style="padding:5px;">
+							<el-input placeholder="请输入文件名称..." icon="search" v-model="filterText"></el-input>
+						</el-col>
+						<el-col class="dirTree" :span="24" >
+							<el-tree class="filter-tree" :data="dirTree.dirTreeData" :props="dirTree.defaultProps"
+									 @node-click="addTab" @node-expand="getNodeData" :filter-node-method="filterNode"
+									 ref="tree" style="border:none;background:none;">
+							</el-tree>
+						</el-col>
+					</el-col>
+					<el-col class="menuTitle" :span="24" v-show="leftMenuCollapsed" style="text-align: center;">
+						<label class="fa fa-angle-double-right button" title="Menu Expand" @click.prevent="leftMenuCollapse" ></label>
+					</el-col>
+				</aside>
+				<section class="content-container" style="overflow-y: hidden;position:relative;">
+					<el-col :span="24">
+						<el-tabs v-model="tabs.tabName" type="card" closable @tab-remove="removeTab" @tab-click="clickTab">
+							<el-tab-pane v-for="(item, index) in tabs.tabsData" :key="item.name" :label="item.title" :name="item.name">
+								<el-col :span="24" class="toolbar" style="margin: 0;padding: 0 0 15px 15px;background: none;">
+									<el-button-group>
+										<el-button type="primary" size="small" @click="showEditor(item.id,{language:item.type})">查看</el-button>
+										<el-button type="primary" size="small" @click="editorSearch(item.id)">搜索</el-button>
+										<el-button type="primary" size="small" v-show="!item.readOnly" @click="editCode(item.id,{language:item.type,readOnly:item.readOnly})">编辑</el-button>
+										<el-button type="primary" size="small" v-show="!item.readOnly" @click="saveEditCode(item.id,item.path)">保存</el-button>
+										<el-button type="primary" size="small" v-show="item.build" @click="buildPage(item.name,item.path)">生成</el-button>
+										<el-button type="primary" size="small" @click="previewPage(item)" v-show="item.preview">预览</el-button>
+									</el-button-group>
+								</el-col>
+								<textarea :id="item.id" :type="item.type" :style="{ width: editor.editorWidth,height:editor.editorHeight+'px'}">{{item.content}}</textarea>
+							</el-tab-pane>
+						</el-tabs>
+					</el-col>
+					<label class="fa fa-expand button" title="max" @click.prevent="maxContentContainer"  style="position:absolute;right:5px;top:5px;"></label>
+				</section>
+				<aside :class="rightMenuCollapsed?'menu-collapsed':'menu-expanded'">
+					<el-col :span="24" style="height:50%;" v-show="!rightMenuCollapsed">
+						<el-col class="menuTitle" :span="24">
+							<label class="title">Code Structure</label>
+							<label class="fa fa-angle-double-right button" title="Menu Collapse" @click.prevent="rightMenuCollapse" style="margin-left: 20px;"></label>
+						</el-col>
+						<el-col class="structureTree" :span="24">
+							<el-tree :data="structureTree.structureTreeData" :props="structureTree.defaultProps" default-expand-all
+									  style="border:none;background:none;">
+							</el-tree>
+						</el-col>
+					</el-col>
+					<el-col :span="24" style="height:50%;" v-show="!rightMenuCollapsed">
+						<el-col class="menuTitle" :span="24">
+							<label class="title">Node Attribute</label>
+							<label class="fa fa-save button"  title="saveAttribute" @click.prevent="saveAttribute"></label>
+							<label class="fa fa-plus button" title="addAttribute"  @click.prevent="addAttribute"></label>
+						</el-col>
+						<el-col class="attrTable" :span="24">
+							<el-table :data="attrTableData" border style="width: 100%" stripe>
+								<el-table-column prop="key" label="属性" sortable align="center">
+									<template scope="scope">
+										<input type="text" v-model="scope.row.key" placeholder="属性名称"/>
+									</template>
+    </el-table-column>
+    <el-table-column prop="value" label="值" align="center">
+        <template scope="scope">
+									<input type="text" v-model="scope.row.value" placeholder="属性值"/>
+								</template>
+    </el-table-column>
+    </el-table>
+    </el-col>
+    </el-col>
+    <el-col class="menuTitle" :span="24" v-show="rightMenuCollapsed" style="text-align: center;">
+        <label class="fa fa-angle-double-left button" title="Menu Expand" @click.prevent="rightMenuCollapse"></label>
+    </el-col>
+    </aside>
+    </el-col>
+    <el-dialog title="预览效果" :visible.sync="previewDialogVisible" size="large" top="5%">
+        <iframe class="previewDialog" id="previewPage" :name="previewPageName" :src="previewPagePath"></iframe>
+    </el-dialog>
+    <el-dialog title="上传文件" :visible.sync="uploadDialogVisible" size="tiny">
+        <el-upload class="upload-demo" drag action="https://" multiple style="margin:0 auto;width:360px;">
+            <i class="el-icon-upload"></i>
+            <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+            <div class="el-upload__tip" slot="tip">只能上传jpg/png文件</div>
+        </el-upload>
+    </el-dialog>
+    <el-dialog title="设置" :visible.sync="settingDialogVisible" size="tiny">
+        <el-form ref="form" :model="options" label-width="90px">
+            <el-form-item label="目录路径：">
+                <label>{{basePath}}</label>
+                <el-input v-model="options.dirBasePath" style="width:200px;display: inline-block;"></el-input>
+            </el-form-item>
+            <el-form-item label="预览页面：">
+                <el-input v-model="options.previewPagePath" style="width:200px;display: inline-block;"></el-input>
+            </el-form-item>
+            <el-form-item label="默认语言：">
+                <el-select v-model="options.editor.language.value" filterable placeholder="请选择语言...">
+                    <el-option v-for="item in options.editor.language.options" :key="item.value" :label="item.label" :value="item.value">
+                    </el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item label="默认主题：">
+                <el-select v-model="options.editor.theme.value" filterable placeholder="请选择主题...">
+                    <el-option v-for="item in options.editor.theme.options" :key="item.value" :label="item.label" :value="item.value">
+                    </el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item label="代码字号：">
+                <el-input-number v-model="options.editor.fontSize.value" :min="8" :max="20"></el-input-number> px
+            </el-form-item>
+            <el-form-item label="只读类型：">
+                <el-select v-model="options.editor.readOnly.value" multiple filterable allow-createplaceholder="请选择文件类型">
+                    <el-option v-for="item in options.editor.readOnly.options" :key="item.value" :label="item.label" :value="item.value">
+                    </el-option>
+                </el-select>
+            </el-form-item>
+            <div style="width:175px;margin:0 auto;">
+                <el-button type="primary" @click="saveSetting">保存</el-button>
+                <el-button style="margin-left:50px;" @click="settingDialogVisible = false"> 取消</el-button>
+                <div>
+        </el-form>
+    </el-dialog>
+
+    </el-row>
+    </template>
+    <script src="./lib/vue/vue.min.js"></script>
+    <script src="./lib/jquery/jquery-3.2.1.min.js"></script>
+    <script src="./lib/element-ui/lib/index.js"></script>
+    <script src="./lib/ace/ace.js"></script>
+    <script src="./lib/ace/ext-language_tools.js"></script>
+    <script src="./static/js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/button"
+           xmlns="http://www.flyread.com.cn/button"
+           xmlns:boxco="http://www.flyread.com.cn/boxComponent"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/boxComponent"/>
+
+    <xs:element name="args" substitutionGroup="boxco:args" type="button" />
+    <xs:complexType name="button" >
+        <xs:complexContent>
+            <xs:extension base="boxco:boxComponentArgs">
+                <xs:attribute name="allowDepress" type="xs:string"/>
+                <xs:attribute name="arrowAlign" type="xs:string"/>
+                <xs:attribute name="buttonSelector" type="xs:string"/>
+                <xs:attribute name="clickEvent" type="xs:string"/>
+                <xs:attribute name="cls" type="xs:string"/>
+                <xs:attribute name="disabled" type="xs:string"/>
+                <xs:attribute name="enableToggle" type="xs:string"/>
+                <xs:attribute name="handleMouseEvents" type="xs:string"/>
+                <xs:attribute name="handler" type="xs:string"/>
+                <xs:attribute name="hidden" type="xs:string"/>
+                <xs:attribute name="icon" type="xs:string"/>
+                <xs:attribute name="iconAlign" type="xs:string"/>
+                <xs:attribute name="iconCls" type="xs:string"/>
+                <xs:attribute name="menu" type="xs:string"/>
+                <xs:attribute name="menuAlign" type="xs:string"/>
+                <xs:attribute name="minWidth" type="xs:string"/>
+                <xs:attribute name="overflowText" type="xs:string"/>
+                <xs:attribute name="pressed" type="xs:string"/>
+                <xs:attribute name="repeat" type="xs:string"/>
+                <xs:attribute name="scale" type="xs:string"/>
+                <xs:attribute name="scope" type="xs:string"/>
+                <xs:attribute name="tabIndex" type="xs:string"/>
+                <xs:attribute name="template" type="xs:string"/>
+                <xs:attribute name="text" type="xs:string"/>
+                <xs:attribute name="toggleGroup" type="xs:string"/>
+                <xs:attribute name="toggleHandler" type="xs:string"/>
+                <xs:attribute name="tooltip" type="xs:string"/>
+                <xs:attribute name="tooltipType" type="xs:string"/>
+                <xs:attribute name="type" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

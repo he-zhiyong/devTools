@@ -1,0 +1,1 @@
+{"hea":{"code":"hea","name":"头标","desc":"头标000或者HEA"},"ctl":{"code":"ctl","name":"控制字段","desc":"控制字段001-009"},"fd":{"code":"fd","name":"变长字段","desc":"变长字段010-009"},"ind1":{"code":"ind1","name":"指示符1","desc":"字段的指示符1,变长字段才具有"},"ind2":{"code":"ind2","name":"指示符2","desc":"字段的指示符2,变长字段才具有"},"subfd":{"code":"subfd","name":"子字段","desc":"子字段,变长字段的子字段"}}

@@ -1,0 +1,1 @@
+{buttonLabel : {text : "按钮",style : "display:inline-block;height:25px;width:60px;text-align:center;line-height:25px;background:#17c184;color:#fff;",},}

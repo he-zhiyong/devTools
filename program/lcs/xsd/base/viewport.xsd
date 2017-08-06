@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.flyread.com.cn/viewport"
+           xmlns="http://www.flyread.com.cn/viewport"
+           xmlns:cont="http://www.flyread.com.cn/container"
+           elementFormDefault="qualified">
+
+    <xs:import namespace="http://www.flyread.com.cn/container"/>
+
+    <xs:element name="args" substitutionGroup="cont:args" type="viewportArgs" />
+    <xs:complexType name="viewportArgs" >
+        <xs:complexContent>
+            <xs:extension base="cont:containerArgs">
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
